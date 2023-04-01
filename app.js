@@ -56,15 +56,15 @@ function obtener_bienvenida(){
 function guardar_bienvenida(){
   
   let persona = {
-    nombre:   "Maxi",
-    edad: 31,
-    apellido:  "pepe",
-  }
+    nombre:   prompt("Ingrese su nombre."),
+    apellido:  prompt("Ingrese su apellido."),
+    edad: prompt("Ingrese su edad."),
+  }  
+  
+    localStorage.setItem("nombre", nombre);
+    localStorage.setItem("persona", JSON.stringify (persona));
+
+    document.body.innerHTML = document.body.innerHTML + "<b> Bienvenido " + "</br>" + persona.nombre + " " + persona.apellido 
+  
+
 };
-
-let nombre = prompt("Ingrese su nombre.");
-
-localStorage.setItem("nombre", nombre);
-localStorage.setItem("persona", JSON.stringify (persona));
-
-document.body.innerHTML = nombre;
