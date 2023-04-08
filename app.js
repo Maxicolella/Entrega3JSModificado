@@ -66,5 +66,4 @@ function guardar_bienvenida(){
 
     document.body.innerHTML = document.body.innerHTML + "<b> Bienvenido " + "</br>" + persona.nombre + " " + persona.apellido 
   
-
-};
+ };
