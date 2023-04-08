@@ -1,22 +1,22 @@
 import { Producto } from "./Product.js";
 import { UI } from "./UI.js";
 
-// DOM Events
+// DOM Eventos
 document.getElementById("product-form")
 
 document.addEventListener("submit", function (e) {
     // Override the default Form behaviour
     e.preventDefault();
 
-    // Getting Form Values
+    // Obteniendo los valos del formulario.
     const nombre = document.getElementById("nombre").value;
     const precio = document.getElementById("precio").value;
     const cantidad = document.getElementById("cantidad").value;
 
-    // Create a new Oject Product
+    // Creando un nuevo Objeto.
     const producto = new Producto(nombre, precio, cantidad);
 
-    // Create a new UI instance
+    // Creando una nueva UI instancia
     const ui = new UI();
 
     // Input User Validation
@@ -24,7 +24,7 @@ document.addEventListener("submit", function (e) {
       ui.mostrarMensaje("Por favor ingrese datos en todos los campos.", "danger");
     }
 
-    // Save Product
+    // Guardar productos.
     ui.agregarProductos(producto);
     ui.mostrarMensaje("Producto agregado correctamente", "success");
     ui.resetearForm();
@@ -67,3 +67,48 @@ function guardar_bienvenida(){
     document.body.innerHTML = document.body.innerHTML + "<b> Bienvenido " + "</br>" + persona.nombre + " " + persona.apellido 
   
  };
+
+
+const aplicacion = document.querySelector('.containersu')
+
+const url = 'https://jsonplaceholder.typicode.com/users'
+
+fetch (url)
+  .then (res => res.json())
+  .then (data => {
+    data.forEach(usuario => {
+      const p = document.createElement('p')
+      p.setAttribute('id', usuario.id)
+      p.innerHTML = usuario.name
+      p.addEventListener('click', function(){
+        window.location.href = `./usuario.html?=id${usuario.id}`
+      })
+      aplicacion.appendChild(p)
+    });
+  })
+
+.catch (err => console.log(err))
+
+
+let listado = document.getElementById("listado");
+
+const traerDatos = async () => {
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const data = await response.json();
+
+    data.forEach((publicacion) => {
+      const li = document.createElement("li");
+      li.innerHTML = `
+          <h3>${publicacion.title}</h3>
+          <p>${publicacion.body}</p>
+        `;
+
+      listado.append(li);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+traerDatos();
