@@ -68,27 +68,31 @@ function guardar_bienvenida(){
   
  };
 
+// const miBoton = document.getElementById("miBoton")
 
-const aplicacion = document.querySelector('.containersu')
+// miBoton.addEventListener('click', ejecutarFetch)
 
-const url = 'https://jsonplaceholder.typicode.com/users'
+// function ejecutarFetch(){
+  
+// const aplicacion = document.querySelector('.containersu')
 
-fetch (url)
-  .then (res => res.json())
-  .then (data => {
-    data.forEach(usuario => {
-      const p = document.createElement('p')
-      p.setAttribute('id', usuario.id)
-      p.innerHTML = usuario.name
-      p.addEventListener('click', function(){
-        window.location.href = `./usuario.html?=id${usuario.id}`
-      })
-      aplicacion.appendChild(p)
-    });
-  })
+// const url = 'https://jsonplaceholder.typicode.com/users'
 
-.catch (err => console.log(err))
+// fetch (url)
+//   .then (res => res.json())
+//   .then (data => {
+//     data.forEach(usuario => {
+//       const p = document.createElement('p')
+//       p.setAttribute('id', usuario.id)
+//       p.innerHTML = usuario.name
+//       p.addEventListener('click', function(){
+//         window.location.href = `./usuario.html?=id${usuario.id}`
+//       })
+//       aplicacion.appendChild(p)
+//     });
+//   })
 
+// .catch (err => console.log(err))
 
 let listado = document.getElementById("listado");
 
